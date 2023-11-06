@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'gradle'
-            args  '--net="jenkins_network"'
+            args  '--net="jenkins"'
         }
     }
     stages {
