@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker {image 'gradle'}
+        docker {
+            image 'gradle'
+            args  '--net="jenkins_network"'
+        }
     }
     stages {
         stage('Scan')  {
