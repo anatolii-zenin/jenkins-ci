@@ -4,6 +4,14 @@ plugins {
     id 'jacoco'
 }
 
+
+sonar {
+    properties {
+        property "sonar.projectKey", "test"
+        property "sonar.projectName", "test"
+    }
+}
+
 wrapper {
     gradleVersion = gradlewVersion
 }
