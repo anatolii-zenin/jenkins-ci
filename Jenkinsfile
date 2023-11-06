@@ -1,11 +1,13 @@
 pipeline {
     agent {
-        docker {image 'node:16-alpine'}
+        docker {image 'gradle'}
     }
     stages {
-        stage('Test')  {
+        stage('Scan')  {
             steps {
-                sh 'node --version'
+                withSonarQubeEnv(installationName: 'sonarqube') {
+                    sh "./gradlew sonar"
+                }
             }
         }
     }
