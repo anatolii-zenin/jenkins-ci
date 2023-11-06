@@ -2,10 +2,10 @@ pipeline {
     agent {
         docker {image 'gradle'}
     }
-    stage('SCM') {
-        checkout scm
-    }
     stages {
+        stage('SCM') {
+            checkout scm
+        }
         stage('Scan')  {
             steps {
                 withSonarQubeEnv(installationName: 'sonarqube') {
