@@ -4,11 +4,13 @@ plugins {
     id 'jacoco'
 }
 
+var reportLocation = "module-main/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml"
 
 sonar {
     properties {
         property "sonar.projectKey", "test"
         property "sonar.projectName", "test"
+        property "sonar.coverage.jacoco.xmlReportPaths", reportLocation
     }
 }
 
@@ -46,20 +48,12 @@ subprojects {
         annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
         implementation "org.mapstruct:mapstruct:$mapstructVersion"
     }
+
     test {
         useJUnitPlatform()
     }
 }
 
-task repack(type: Jar, dependsOn: ':module-main:build') {
-    if (findProject(':module-main') != null) {
-        entryCompression = ZipEntryCompression.STORED
-        def buildJar = zipTree("${project(':module-main').buildDir}/libs/module-main.jar")
-        from(buildJar) { into('/') }
-        manifest {
-            attributes(
-                    'Main-Class': 'com.mjc.school.main.Main'
-            )
-        }
-    }
-}
+//tasks.check {
+//
+//}
