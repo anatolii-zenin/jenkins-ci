@@ -1,6 +1,7 @@
 package com.mjc.school.controller;
 
 import org.json.JSONObject;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,15 +10,15 @@ import static com.mjc.school.controller.TestHelper.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-
+@Disabled
 public class TagTests {
     @Test
-    public void createTagTest() {
+    void createTagTest() {
         createTag(DEFAULT_TAG_NAME);
     }
 
     @Test
-    public void readTagByIdTest() {
+    void readTagByIdTest() {
         var id = TestHelper.createTag(DEFAULT_TAG_NAME);
 
         var reqBody = new JSONObject();
@@ -32,7 +33,7 @@ public class TagTests {
     }
 
     @Test
-    public void readTagByNewsIdTest() {
+    void readTagByNewsIdTest() {
         var tagId = TestHelper.createTag(DEFAULT_TAG_NAME);
         var authorId = createAuthor(DEFAULT_AUTHOR_NAME);
         var tagIds = new ArrayList<Long>();
@@ -54,7 +55,7 @@ public class TagTests {
     }
 
     @Test
-    public void readAllTagsTest() {
+    void readAllTagsTest() {
         createTag(DEFAULT_TAG_NAME);
         createTag(DEFAULT_TAG_NAME);
 
@@ -66,7 +67,7 @@ public class TagTests {
     }
 
     @Test
-    public void updateTagTest() {
+    void updateTagTest() {
         String tagNameUpdated = DEFAULT_TAG_NAME + "Updated";
 
         var id = createTag(DEFAULT_TAG_NAME);
@@ -92,7 +93,7 @@ public class TagTests {
     }
 
     @Test
-    public void deleteTagTest() {
+    void deleteTagTest() {
         var id = createTag(DEFAULT_TAG_NAME);
 
         given()

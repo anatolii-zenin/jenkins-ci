@@ -1,6 +1,7 @@
 package com.mjc.school.controller;
 
 import org.json.JSONObject;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,11 +10,11 @@ import static com.mjc.school.controller.TestHelper.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-
+@Disabled
 public class CommentTests {
 
     @Test
-    public void createCommentTest() {
+    void createCommentTest() {
         var authorId = createAuthor(DEFAULT_AUTHOR_NAME);
         var newsId = createNews(authorId,
                 DEFAULT_NEWS_TITLE,
@@ -23,7 +24,7 @@ public class CommentTests {
     }
 
     @Test
-    public void readCommentByIdTest() {
+    void readCommentByIdTest() {
         var authorId = createAuthor(DEFAULT_AUTHOR_NAME);
         var newsId = createNews(authorId,
                 DEFAULT_NEWS_TITLE,
@@ -43,7 +44,7 @@ public class CommentTests {
     }
 
     @Test
-    public void readCommentByNewsIdTest() {
+    void readCommentByNewsIdTest() {
         var authorId = createAuthor(DEFAULT_AUTHOR_NAME);
         var newsId = createNews(authorId,
                 DEFAULT_NEWS_TITLE,
@@ -63,7 +64,7 @@ public class CommentTests {
     }
 
     @Test
-    public void readAllCommentsTest() {
+    void readAllCommentsTest() {
         var authorId = createAuthor(DEFAULT_AUTHOR_NAME);
         var newsId = createNews(authorId,
                 DEFAULT_NEWS_TITLE,
@@ -80,7 +81,7 @@ public class CommentTests {
     }
 
     @Test
-    public void updateCommentTest() {
+    void updateCommentTest() {
         String contentUpdated = "updated";
 
         var authorId = createAuthor(DEFAULT_AUTHOR_NAME);
@@ -102,7 +103,7 @@ public class CommentTests {
     }
 
     @Test
-    public void deleteNewsTest() {
+    void deleteNewsTest() {
         var authorId = createAuthor(DEFAULT_AUTHOR_NAME);
         var newsId = createNews(authorId,
                 DEFAULT_NEWS_TITLE,

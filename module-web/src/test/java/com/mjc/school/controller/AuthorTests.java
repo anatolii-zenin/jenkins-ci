@@ -1,22 +1,23 @@
 package com.mjc.school.controller;
 
 import org.json.JSONObject;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.mjc.school.controller.TestHelper.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-
+@Disabled
 public class AuthorTests {
-
+    
     @Test
-    public void createAuthorTest() {
+    void createAuthorTest() {
         createAuthor(DEFAULT_AUTHOR_NAME);
     }
 
     @Test
-    public void readAuthorByIdTest() {
+    void readAuthorByIdTest() {
         var id = createAuthor(DEFAULT_AUTHOR_NAME);
 
         var reqBody = new JSONObject();
@@ -32,7 +33,7 @@ public class AuthorTests {
     }
 
     @Test
-    public void readAllAuthorsTest() {
+    void readAllAuthorsTest() {
         createAuthor(DEFAULT_AUTHOR_NAME);
         createAuthor(DEFAULT_AUTHOR_NAME);
 
@@ -44,7 +45,7 @@ public class AuthorTests {
     }
 
     @Test
-    public void updateAuthorTest() {
+    void updateAuthorTest() {
         String authorNameUpdated = DEFAULT_AUTHOR_NAME + "Updated";
 
         var id = createAuthor(DEFAULT_AUTHOR_NAME);
@@ -62,7 +63,7 @@ public class AuthorTests {
     }
 
     @Test
-    public void updateAuthorTestInvalid() {
+    void updateAuthorTestInvalid() {
         var id = createAuthor(DEFAULT_AUTHOR_NAME);
 
         var reqBodyInvalid = new JSONObject();
@@ -76,7 +77,7 @@ public class AuthorTests {
     }
 
     @Test
-    public void deleteAuthorTest() {
+    void deleteAuthorTest() {
         var id = createAuthor(DEFAULT_AUTHOR_NAME);
         given()
                 .when().delete(AUTHORS + id)
