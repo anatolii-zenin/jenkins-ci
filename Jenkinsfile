@@ -23,11 +23,5 @@ pipeline {
                 }
             }
         }
-        stage('Sleep') {
-            steps {
-                echo 'Waiting 5 minutes for debugging purposes'
-                sleep 300
-            }
-        }
     }
 }

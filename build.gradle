@@ -4,7 +4,7 @@ plugins {
     id 'jacoco'
 }
 
-var reportLocation = "$buildDir/module-main/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml"
+var reportLocation = "$buildDir/../module-main/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml"
 
 sonar {
     properties {
