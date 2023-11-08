@@ -11,9 +11,9 @@ pipeline {
                 sh "gradle build"
             }
         }
-        stage('Test')  {
+        stage('Test and generate code coverage report')  {
             steps {
-                sh "gradle test"
+                sh "gradle module-main:testCodeCoverageReport"
             }
         }
         stage('Scan')  {
