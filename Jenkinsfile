@@ -31,7 +31,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: "/module-main/build/libs/module-main.war", onlyIfSuccessful: true
+            archiveArtifacts artifacts: "module-main/build/libs/module-main.war", onlyIfSuccessful: true
         }
     }
 }
