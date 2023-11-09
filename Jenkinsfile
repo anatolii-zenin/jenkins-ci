@@ -25,8 +25,7 @@ pipeline {
         }
         stage('Package war file')  {
             steps {
-                    sh "gradle module-main:bootWar"
-                }
+                sh "gradle module-main:bootWar"
             }
         }
     }
