@@ -29,4 +29,10 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            sh "echo $PWD"
+            archiveArtifacts artifacts: "$buildDir/../module-main/build/libs/module-main.war", onlyIfSuccessful: true
+        }
+    }
 }
