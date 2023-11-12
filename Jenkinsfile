@@ -32,6 +32,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: "module-main/build/libs/module-main.war", onlyIfSuccessful: true
+            build job: '/deploy', onlyIfSuccessful: true
         }
     }
 }
