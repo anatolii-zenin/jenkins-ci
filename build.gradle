@@ -51,6 +51,7 @@ subprojects {
         implementation "org.mapstruct:mapstruct:$mapstructVersion"
 
         compileOnly "org.springframework.boot:spring-boot-starter-tomcat:$bootVersion"
+        testRuntimeOnly "org.springframework.boot:spring-boot-starter-tomcat:$bootVersion"
     }
 
     test {
