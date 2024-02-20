@@ -26,7 +26,7 @@ ls -l /var/run/docker.sock
 ```
 Open terminal of the docker container with Jenkins:
 ```
-docker exec -it -u root jenkins-bluestacks bash
+docker exec -it -u root jenkins-blueocean bash
 ```
 Add the docker group to the jenkins container:
 ```
